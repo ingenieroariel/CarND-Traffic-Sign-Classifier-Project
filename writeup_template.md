@@ -1,6 +1,6 @@
-#**Traffic Sign Recognition** 
+# **Traffic Sign Recognition** 
 
-##Ariel Nunez
+## Ariel Nunez
 
 ---
 
@@ -29,15 +29,15 @@ The goals / steps of this project are the following:
 ## Rubric Points
 
 ---
-###Writeup / README
+### Writeup / README
 
-####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
+####1 . Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
 
 This is the README and is hosted on Github along with the project code. http://github.com/ingenieroariel/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb
 
-###Data Set Summary & Exploration
+### Data Set Summary & Exploration
 
-####1. Provide a basic summary of the data set and identify where in your code the summary was done. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
+#### 1. Provide a basic summary of the data set and identify where in your code the summary was done. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
 
 Data exploration has been done on cell #3. The code used to plot it was based on code from Vivek Yadav.
 
@@ -46,13 +46,13 @@ Data exploration has been done on cell #3. The code used to plot it was based on
 * The shape of a traffic sign image is (32, 32, 3)
 * The number of unique classes/labels in the data set is 43
 
-####2. Include an exploratory visualization of the dataset and identify where the code is in your code file.
+#### 2. Include an exploratory visualization of the dataset and identify where the code is in your code file.
 
 The code for this step is contained in the third code cell of the IPython notebook.  
 
 Here is an exploratory visualization of the data set. It is random images from the dataset.
 
-![Example data][visualize.png]
+ ![Example data](visualize.png)
 
 ###Design and Test a Model Architecture
 
@@ -77,24 +77,25 @@ The fourth code cell of the IPython notebook contains the code for augmenting th
 The data augmentation techniques done were Rotation, Translation, Shear and Brightness. I created 10 times more data using this technique.
 
 
-####3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
+#### 3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
 The code for my final model is located in the eigth cell of the ipython notebook. 
 
 My final model is exactly LeNet, using 32x32x3 RGB as input and a fully connected layer at the end of input 84 and output 43.
 
-![Lenet][http://www.pyimagesearch.com/wp-content/uploads/2016/06/lenet_architecture-768x226.png]
-####4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+![Lenet](http://www.pyimagesearch.com/wp-content/uploads/2016/06/lenet_architecture-768x226.png)
+#### 4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
 The code for training the model is located in the eigth cell of the ipython notebook. 
 
 To train the model, I used an Adam optimizer, with a target function of reducing the mean of a softmax crossentropy.
 
-####5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+#### 5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 Training started out at around 80% accuracy but jumped to 92% accuracy in the first epoch when using the data augmentation.
 
 My final model results were:
+
 * training set accuracy of 99.9%
 * validation set accuracy of 96% 
 * test set accuracy of 94%
@@ -119,16 +120,14 @@ If a well known architecture was chosen:
 ###Test a Model on New Images
 
 ####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
-I used Colombian street signs.
 
-![PARE (Stop)][new_images/im0.jpg]
-![PARE (Stop)][new_images/im1.png]
-![40km/h][new_images/im2.png]
-![30km/h][new_images/im3.png]
-![Right turn forbidden][new_images/im4.png]
+![60km/h](german_images/1.jpg)
+![Stop](german_images/2.png)
+![Pedestrian Crossing](german_images/3.png)
+![30 km/h](german_images/4.png)
+![Yield](german_images/5.png)
 
 
-They PARE signals are very similar to the STOP sign and mean the same, 40km/h was actually not available in the Germany dataset but it will be fun to see if it tries to classify it as a speed sign. Forbigdden right turn is also new one.
 
 ####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
